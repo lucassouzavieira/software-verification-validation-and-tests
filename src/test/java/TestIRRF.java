@@ -17,7 +17,7 @@ public class TestIRRF {
      * Se espera o valor de desconto do IR
      * Testando diversas faixas de rendimentos
      **/
-    public void testExibir() {
+    public void testCalcularIRRF() {
         assertEquals(0, irrfInstance.calcularIRRF(1650));
         assertEquals(2000 * 0.075, irrfInstance.calcularIRRF(2000));
         assertEquals(3500 * 0.15, irrfInstance.calcularIRRF(3500));

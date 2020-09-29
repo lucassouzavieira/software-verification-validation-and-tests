@@ -11,7 +11,6 @@ public class Salario {
     double INSS = inss.calcularINSS(salario);
     double IRRF = irrf.calcularIRRF(salario);
 
-
     public double calcularDesconto() {
         return INSS + IRRF;
     }

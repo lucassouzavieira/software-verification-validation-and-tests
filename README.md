@@ -10,3 +10,6 @@ Install dependencies
 `mvn install`
 
 ## Running tests
+
+Run command:  
+`mvn test`

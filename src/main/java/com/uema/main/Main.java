@@ -10,8 +10,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         Fucionario func = new Fucionario();
-        FuncADM ADM = new FuncADM();
-        Salario sal = new Salario();
+        Salario sal = new Salario(0, 0);
 
         // Dados do funcionario
         func.setNome(JOptionPane.showInputDialog("informe o nome do funcion�rio: \n"));
@@ -20,6 +19,8 @@ public class Main {
 
         // Salario do funcionario
         sal.setSalario(Double.parseDouble(JOptionPane.showInputDialog("informe o salario: \n")));
+
+        FuncADM ADM = new FuncADM(func, sal);
 
         // Verificacao do salario
         if (!sal.validarSalario(sal.getSalario())) {
@@ -33,7 +34,6 @@ public class Main {
         if (!sal.validarAdiantamento(sal.getAdiantamento())) {
             JOptionPane.showMessageDialog(null, "Adiantamento invalido!");
         }
-
 
         // Verificacao dos dados
         if (func.getNome() != null) {

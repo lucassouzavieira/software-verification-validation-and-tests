@@ -8,7 +8,7 @@ public class Irrf {
     public double calcularIRRF(double salariobruto) {
 
         if (salariobruto <= 1903.98) {
-            irrf = salariobruto;
+            irrf = salariobruto * 0;
         } else if (salariobruto >= 1903.99 && salariobruto <= 2826.65) {
             irrf = salariobruto * 0.075;
         } else if (salariobruto >= 2826.66 && salariobruto <= 3751.05) {

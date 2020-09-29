@@ -2,14 +2,39 @@ package com.uema.funcionario;
 
 public class Salario {
 
-    private double adiantamento = 600;
+    private double adiantamento = 0;
     private double salario = 6000;
+    private double INSS = 0;
+    private double IRRF = 0;
 
-    Inss inss = new Inss();
-    Irrf irrf = new Irrf();
+    public Salario(double valor) {
+        Inss inss = new Inss();
+        Irrf irrf = new Irrf();
 
-    double INSS = inss.calcularINSS(salario);
-    double IRRF = irrf.calcularIRRF(salario);
+        this.salario = valor;
+        this.adiantamento = 0;
+
+        this.INSS = inss.calcularINSS(this.salario);
+        this.IRRF = inss.calcularINSS(this.salario);
+    }
+
+    public Salario(double valor, double adiantamento) {
+        Inss inss = new Inss();
+        Irrf irrf = new Irrf();
+
+        this.salario = valor;
+        this.adiantamento = adiantamento;
+
+        this.INSS = inss.calcularINSS(this.salario);
+        this.IRRF = irrf.calcularIRRF(this.salario);
+    }
+
+    private void atualizarTaxas() {
+        Inss inss = new Inss();
+        Irrf irrf = new Irrf();
+        this.INSS = inss.calcularINSS(this.salario);
+        this.IRRF = irrf.calcularIRRF(this.salario);
+    }
 
     public double calcularDesconto() {
         return INSS + IRRF;
@@ -38,6 +63,7 @@ public class Salario {
 
     public void setSalario(double salario) {
         this.salario = salario;
+        this.atualizarTaxas();
     }
 
     public double getSalario() {

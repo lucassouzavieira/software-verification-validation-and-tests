@@ -1,21 +1,40 @@
 
 import org.junit.jupiter.api.Test;
+import com.uema.funcionario.Salario;
 import com.uema.funcionario.FuncADM;
+import com.uema.funcionario.Fucionario;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test FuncADM
+ *
+ * @author Lucas S. Vieira
+ */
 public class TestFuncADM {
-    FuncADM funInstance = new FuncADM();
 
     @Test
     public void testExibir() {
-        String funcionario = "Nome: Lucas Vieira" +
+        Fucionario funcionario = new Fucionario();
+        funcionario.setNome("Lucas Vieira");
+        funcionario.setSetor("TI");
+        funcionario.setFuncao("Desenvolvedor");
+
+        Salario salario = new Salario(2560.55);
+
+        FuncADM funInstance = new FuncADM(funcionario, salario);
+
+        String funcionarioText = "Nome: Lucas Vieira" +
                 "\nFuncao: Desenvolvedor" +
                 "\nSetor: TI";
 
-        String expected = "Dados do Funcionario ADM\n" + funcionario +
-                "\nrecebe R$2560.55" +
-                "\nDesconto total 156.45";
+        assertEquals(funcionarioText, funInstance.getFuncionario().exibir());
+        double discount = 2560.55 * 0.075 + 2560.55 * 0.12;
+        double value = 2560.55 - discount;
 
+        String expected = "Dados do Funcionario ADM\n" + funcionario +
+                "\nrecebe R$" + String.format("%.2f do salario", value) +
+                "\nDesconto total " + String.format("%.2f do salario", discount);
         assertEquals(expected, funInstance.exibir());
     }
 }

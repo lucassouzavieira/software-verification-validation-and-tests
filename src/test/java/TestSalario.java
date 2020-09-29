@@ -10,11 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Lucas S. Vieira
  */
 public class TestSalario {
-    Salario salarioInstance = new Salario();
+    Salario salarioInstance = new Salario(1045);
 
     @Test
     public void testCalcularDesconto() {
-        salarioInstance.setAdiantamento(0);
         salarioInstance.setSalario(1045);
 
         double expected = (1045 * 0.075) + (0); // INSS + IRRF

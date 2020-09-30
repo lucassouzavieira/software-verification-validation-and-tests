@@ -13,9 +13,9 @@ public class Main {
         Salario sal = new Salario(0, 0);
 
         // Dados do funcionario
-        func.setNome(JOptionPane.showInputDialog("informe o nome do funcion�rio: \n"));
+        func.setNome(JOptionPane.showInputDialog("informe o nome do funcionario: \n"));
         func.setFuncao(JOptionPane.showInputDialog("informe o setor: \n"));
-        func.setSetor(JOptionPane.showInputDialog("informe a fun��o: \n"));
+        func.setSetor(JOptionPane.showInputDialog("informe a funcao: \n"));
 
         // Salario do funcionario
         sal.setSalario(Double.parseDouble(JOptionPane.showInputDialog("informe o salario: \n")));
@@ -39,7 +39,7 @@ public class Main {
         if (func.getNome() != null) {
             JOptionPane.showMessageDialog(null, ADM.exibir());
         } else {
-            JOptionPane.showMessageDialog(null, "N�o tem nenhum funcionario cadastrado");
+            JOptionPane.showMessageDialog(null, "Nao tem nenhum funcionario cadastrado");
         }
     }
 }

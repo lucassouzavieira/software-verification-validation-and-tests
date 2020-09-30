@@ -29,10 +29,10 @@ public class TestFuncADM {
                 "\nSetor: TI";
 
         assertEquals(funcionarioText, funInstance.getFuncionario().exibir());
-        double discount = 2560.55 * 0.075 + 2560.55 * 0.12;
+        double discount = (2560.55 * 0.12) + (2560.55 * 0.075);
         double value = 2560.55 - discount;
 
-        String expected = "Dados do Funcionario ADM\n" + funcionario +
+        String expected = "Dados do Funcionario ADM\n" + funcionarioText +
                 "\nrecebe R$" + String.format("%.2f do salario", value) +
                 "\nDesconto total " + String.format("%.2f do salario", discount);
         assertEquals(expected, funInstance.exibir());
